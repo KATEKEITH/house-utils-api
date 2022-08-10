@@ -1,0 +1,11 @@
+####
+GET {{host}}/api/calc/brokerage?actionType=PURCHASE&price=1000000000
+
+####
+GET {{host}}/api/calc/brokerage?actionType=RENT&price=1000000000
+
+####
+GET {{host}}/api/calc/appartment/1?actionType=PURCHASE
+
+####
+GET {{host}}/api/calc/appartment/1?actionType=RENT

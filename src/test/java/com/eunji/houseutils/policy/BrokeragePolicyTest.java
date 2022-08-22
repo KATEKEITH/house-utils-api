@@ -14,6 +14,7 @@ public class BrokeragePolicyTest {
         rentBrokeragePolicy = new RentBrokeragePolicy();
     }
 
+
     @Test
     public void testPurchaseBrokeragePolicy() {
         Assertions.assertEquals(

@@ -1,22 +1,22 @@
 package com.eunji.houseutils.policy;
 
-public class RentBrokeragePolicy implements BrokeragePolicy {
-    public BrokerageRule createBrokerageRule(Long price) {
-        BrokerageRule rule;
+import lombok.Getter;
 
-        if(price < 50_000_000) {
-            rule = new BrokerageRule(0.5, 200_000L);
-        } else if (price < 100_000_000) {
-            rule = new BrokerageRule(0.4, 300_000L);
-        } else if  (price < 600_000_000) {
-            rule = new BrokerageRule(0.3, null);
-        } else if (price < 1200_000_000) {
-            rule = new BrokerageRule(0.4, null);
-        } else if (price < 1500_000_000){
-            rule = new BrokerageRule(0.5, null);
-        } else {
-            rule = new BrokerageRule(0.6, null);
-        }
-        return rule;
+import java.util.Arrays;
+import java.util.List;
+
+@Getter
+public class RentBrokeragePolicy implements BrokeragePolicy {
+    private final List<BrokerageRule> rules;
+
+    public RentBrokeragePolicy() {
+        rules = Arrays.asList(
+                new BrokerageRule(50_000_000L, 0.5, 200_000L),
+                new BrokerageRule(100_000_000L, 0.4, 300_000L),
+                new BrokerageRule(600_000_000L, 0.3, null),
+                new BrokerageRule(1200_000_000L, 0.4, null),
+                new BrokerageRule(1500_000_000L, 0.5, null),
+                new BrokerageRule(Long.MAX_VALUE, 0.6, null)
+        );
     }
 }
